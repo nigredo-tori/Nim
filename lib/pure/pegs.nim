@@ -1338,7 +1338,7 @@ proc getBuiltin(c: var PegLexer, tok: var Token) =
 proc getTok(c: var PegLexer, tok: var Token) =
   tok.kind = tkInvalid
   tok.modifier = modNone
-  setLen(tok.literal, 0)
+  tok.literal = ""
   skip(c)
   case c.buf[c.bufpos]
   of '{':
@@ -1388,7 +1388,7 @@ proc getTok(c: var PegLexer, tok: var Token) =
       of "y": tok.modifier = modIgnoreStyle
       of "v": tok.modifier = modVerbatim
       else: discard
-      setLen(tok.literal, 0)
+      tok.literal = ""
       if c.buf[c.bufpos] == '$':
         getDollar(c, tok)
       else:
