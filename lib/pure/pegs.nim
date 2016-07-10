@@ -1099,7 +1099,7 @@ type
 
   PegLexer {.inheritable.} = object          ## the lexer object.
     bufpos: int               ## the current position within the buffer
-    buf: cstring              ## the buffer itself
+    buf: string               ## the buffer itself
     lineNumber: int           ## the current line number
     lineStart: int            ## index of last line start in buffer
     colOffset: int            ## column to add
